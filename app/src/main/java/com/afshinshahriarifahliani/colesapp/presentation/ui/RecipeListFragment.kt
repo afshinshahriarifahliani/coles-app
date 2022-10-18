@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afshinshahriarifahliani.colesapp.databinding.FragmentRecipeListBinding
 import com.afshinshahriarifahliani.colesapp.presentation.adapter.RecipeAdapter
@@ -51,14 +52,13 @@ class RecipeListFragment : Fragment() {
 
     }
 
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        val orientationLand = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE
-    }
-    private fun initRecyclerView() {
+     private fun initRecyclerView() {
         binding.recipeListRecyclerView.apply {
+            when (resources.configuration.orientation) {
+                1 -> layoutManager = LinearLayoutManager(activity)
+                2 -> layoutManager = GridLayoutManager(activity, 2)
+            }
             adapter = recipeAdapter
-            layoutManager = LinearLayoutManager(activity)
 
         }
     }
