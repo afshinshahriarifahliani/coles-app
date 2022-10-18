@@ -1,4 +1,4 @@
-package com.afshinshahriarifahliani.colesapp
+package com.afshinshahriarifahliani.colesapp.presentation.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.afshinshahriarifahliani.colesapp.R
 import com.afshinshahriarifahliani.colesapp.databinding.ActivityMainBinding
 import com.afshinshahriarifahliani.colesapp.presentation.adapter.RecipeAdapter
 import com.afshinshahriarifahliani.colesapp.presentation.viewmodel.ColesViewModel
@@ -18,8 +19,6 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-
     @Inject
     lateinit var recipeAdapter: RecipeAdapter
 
@@ -40,11 +39,6 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-
-        colesViewModel.getSampleRecipeList()
-        colesViewModel.recipeList.observe(this) {
-            Log.i("MY-TAG", "onCreate: ${it.recipes.size}")
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -54,10 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
+           return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }

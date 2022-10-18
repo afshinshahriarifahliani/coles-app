@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/RecipeListFragment"
-        android:name="com.afshinshahriarifahliani.colesapp.RecipeListFragment"
+        android:name="com.afshinshahriarifahliani.colesapp.presentation.ui.RecipeListFragment"
         android:label="@string/recipe_list_fragment_label"
         tools:layout="@layout/fragment_recipe_list">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/RecipeDetailsFragment"
-        android:name="com.afshinshahriarifahliani.colesapp.RecipeDetailsFragment"
+        android:name="com.afshinshahriarifahliani.colesapp.presentation.ui.RecipeDetailsFragment"
         android:label="@string/recipe_details_fragment_label"
         tools:layout="@layout/fragment_recipe_details">
 

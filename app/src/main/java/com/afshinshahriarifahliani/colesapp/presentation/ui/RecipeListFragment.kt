@@ -1,5 +1,6 @@
-package com.afshinshahriarifahliani.colesapp
+package com.afshinshahriarifahliani.colesapp.presentation.ui
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -37,10 +38,6 @@ class RecipeListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.buttonFirst.setOnClickListener {
-//            findNavController().navigate(R.id.action_RecipeListFragment_to_RecipeDetailsFragment)
-//        }
-
         colesViewModel = (activity as MainActivity).colesViewModel
         recipeAdapter = (activity as MainActivity).recipeAdapter
         recipeAdapter.setOnItemClickListener {
@@ -54,6 +51,10 @@ class RecipeListFragment : Fragment() {
 
     }
 
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        val orientationLand = newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE
+    }
     private fun initRecyclerView() {
         binding.recipeListRecyclerView.apply {
             adapter = recipeAdapter

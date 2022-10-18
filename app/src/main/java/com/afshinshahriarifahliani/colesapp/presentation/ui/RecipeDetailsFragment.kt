@@ -1,4 +1,4 @@
-package com.afshinshahriarifahliani.colesapp
+package com.afshinshahriarifahliani.colesapp.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -82,8 +82,9 @@ class RecipeDetailsFragment : Fragment() {
                         fabView,
                         "Recipe added to favorites successfully",
                         Snackbar.LENGTH_LONG
-                    )
-                        .setAction("Action", null).show()
+                    ).setAction("Ok") { snackbar->
+                        snackbar.visibility = View.GONE
+                    }.show()
                 }
             }
         }
