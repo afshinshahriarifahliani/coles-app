@@ -1,20 +1,32 @@
 package com.afshinshahriarifahliani.colesapp
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import android.view.Menu
-import android.view.MenuItem
 import com.afshinshahriarifahliani.colesapp.databinding.ActivityMainBinding
+import com.afshinshahriarifahliani.colesapp.presentation.adapter.RecipeAdapter
+import com.afshinshahriarifahliani.colesapp.presentation.viewmodel.ColesViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+
+    @Inject
+    lateinit var recipeAdapter: RecipeAdapter
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+
+    val colesViewModel by viewModels<ColesViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +40,10 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+
+        colesViewModel.getSampleRecipeList()
+        colesViewModel.recipeList.observe(this) {
+            Log.i("MY-TAG", "onCreate: ${it.recipes.size}")
         }
     }
 

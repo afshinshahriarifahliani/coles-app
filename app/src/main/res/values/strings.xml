@@ -2,11 +2,16 @@
     <string name="app_name">ColesApp</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="recipe_list_fragment_label">Recipe List</string>
+    <string name="recipe_details_fragment_label">Recipe Details</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="recipe_title">Recipe Title</string>
+    <string name="recipe_image">Recipe Image</string>
+    <string name="recipe">RECIPE</string>
+    <string name="serves">Serves</string>
+    <string name="prep">Prep</string>
+    <string name="cooking">Cooking</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="add_recipe_to_favorites">Add recipe to favorites</string>
 </resources>

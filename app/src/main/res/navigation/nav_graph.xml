@@ -3,26 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/RecipeListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.afshinshahriarifahliani.colesapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/RecipeListFragment"
+        android:name="com.afshinshahriarifahliani.colesapp.RecipeListFragment"
+        android:label="@string/recipe_list_fragment_label"
+        tools:layout="@layout/fragment_recipe_list">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_RecipeListFragment_to_RecipeDetailsFragment"
+            app:destination="@id/RecipeDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.afshinshahriarifahliani.colesapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/RecipeDetailsFragment"
+        android:name="com.afshinshahriarifahliani.colesapp.RecipeDetailsFragment"
+        android:label="@string/recipe_details_fragment_label"
+        tools:layout="@layout/fragment_recipe_details">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_RecipeDetailsFragment_to_RecipeListFragment"
+            app:destination="@id/RecipeListFragment" />
+        <argument
+            android:name="selected_recipe"
+            app:argType="com.afshinshahriarifahliani.colesapp.data.model.Recipe" />
     </fragment>
 </navigation>
